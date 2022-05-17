@@ -1,0 +1,153 @@
+body {
+  background-color: #ededed;
+}
+
+.header {
+  max-width: 100%;
+  padding: 50px 5vw;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  background-color: #ededed;
+}
+
+.header__navegacao {
+  width: 100%;
+}
+
+.header__menu {
+  width: 100%;
+  display: flex;
+}
+
+.header__link {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 2.5px;
+  color: #313e57;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 15px;
+  transition: 400ms;
+}
+
+.header__link:hover {
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(210deg, #6585bf 0, #4d628a 50%, #364159 100%);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+.header__item ~ .header__item {
+  margin-left: 50px;
+}
+
+.artigos {
+  margin-top: 40px;
+  padding: 0px 5vw;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: #ededed;
+}
+
+.artigos__artigo {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  border: #313e57 1px solid;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  font-size: 16px;
+  position: relative;
+}
+
+.artigos__artigo span {
+  font-weight: bold;
+}
+
+.artigos__artigo ~ .artigos__artigo {
+  margin-top: 50px;
+}
+
+.artigo__baixar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 2.5px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 15px;
+  transition: 400ms;
+  background: linear-gradient(210deg, #6585bf 0, #4d628a 50%, #364159 100%);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+.artigo__baixar:hover {
+  transform: scale(1.05);
+}
+
+.artigo__autores {
+  margin-top: 10px;
+}
+
+.artigo__autorLabel {
+  font-weight: bold;
+}
+
+.artigo__autor {
+  margin-top: 3px;
+}
+
+.artigo__instituicao {
+  margin-top: 10px;
+}
+
+.artigo__datas {
+  margin-top: 10px;
+  display: flex;
+}
+
+.artigo__datacria {
+  margin-left: 15px;
+}
+
+.artigo__palavraschave {
+  margin-top: 10px;
+  display: flex;
+}
+
+.artigo__palavraschaveLabel {
+  font-weight: bold;
+}
+
+.artigo__palavrachave {
+  margin-left: 10px;
+}
+
+.artigo__resumo {
+  margin-top: 10px;
+}
+
+.artigo__refs {
+  margin-top: 10px;
+}
+
+.artigo__refsLabel {
+  font-weight: bold;
+}
+
+.artigo__ref {
+  margin-top: 3px;
+}
+
+.artigo__direitos {
+  margin-top: 10px;
+}
