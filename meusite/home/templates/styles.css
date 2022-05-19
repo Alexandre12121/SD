@@ -151,3 +151,8 @@ body {
 .artigo__direitos {
   margin-top: 10px;
 }
+
+
+#add-link{
+  text-decoration: none;
+}
