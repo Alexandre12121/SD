@@ -45,6 +45,7 @@ body {
 
 .artigos {
   margin-top: 40px;
+  margin-bottom: 40px;
   padding: 0px 5vw;
   display: flex;
   flex-direction: column;
@@ -152,7 +153,6 @@ body {
   margin-top: 10px;
 }
 
-
-#add-link{
+#add-link {
   text-decoration: none;
 }

@@ -1,6 +1,6 @@
 const secao = document.querySelector(".artigos");
 
-const LINKDOSARTIGOS = "";
+const LINKDOSARTIGOS = "/artigos";
 
 document.body.onload = () => {
   fetch(LINKDOSARTIGOS)

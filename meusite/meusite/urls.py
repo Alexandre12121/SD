@@ -25,7 +25,7 @@ router.register(r'artigos', ArtigosViewSets)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('',include("home.urls")),
+    path('',include("home.urls")),
     path('', include(router.urls)),
     
 ]
