@@ -25,33 +25,34 @@
       </nav>
     </header>
     <section class="adicionar">
-      <form action="" method="post" class="adicionar__form">
+      <form action="/artigos/" method="POST" role="form" class="adicionar__form" id="myForm">
+        {% csrf_token %}
         <div class="form__titulo">
           <label for="titulo">Título:</label>
-          <input type="text" id="titulo" required />
+          <input type="text" id="titulo"  />
         </div>
         <div class="form__autores">
           <label>Autores:</label>
-          <input type="text" id="autor" required />
+          <input type="text" id="autor"  />
           <button>+</button>
         </div>
         <div class="form__insti">
           <label for="intituicao">Instituição:</label>
-          <input type="text" id="intituicao" required />
+          <input type="text" id="intituicao"  />
         </div>
         <div class="form__datas">
           <div class="form__datapubli">
             <label for="datapubli">Data de publicação:</label>
-            <input type="date" id="datapubli" required />
+            <input type="date" id="datapubli"  />
           </div>
           <div class="form__datacria">
             <label for="datacria">Data de criação:</label>
-            <input type="date" id="datacria" required />
+            <input type="date" id="datacria"  />
           </div>
         </div>
         <div class="form__palavraschave">
           <label>Palavras chave:</label>
-          <input type="text" id="palavrachave" required />
+          <input type="text" id="palavrachave"  />
           <button>+</button>
         </div>
         <div class="form__resumo">
@@ -61,7 +62,7 @@
             id="resumo"
             cols="100"
             rows="7"
-            required
+            
           ></textarea>
         </div>
         <div class="form__resume">
@@ -71,16 +72,16 @@
             id="resume"
             cols="100"
             rows="7"
-            required
+            
           ></textarea>
         </div>
         <div class="form__referencias">
           <label for="ref">Referências:</label>
-          <input type="text" id="ref " required />
+          <input type="text" id="ref"  />
         </div>
         <div class="form__direitos">
           <label for="direitos">Direitos:</label>
-          <input type="text" id="direitos" required />
+          <input type="text" id="direitos"  />
         </div>
           <button id="adc">Adicionar artigo</button>
       </form>
