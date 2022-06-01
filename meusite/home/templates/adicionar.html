@@ -5,11 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP SD</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static "./reset.css" %}"/>
-    <link rel="stylesheet" href="{% static "./styles.css" %}"/>
-    <link rel="stylesheet" href="{% static "./adicionar.css" %}"/>
-    
+    {% load static %} <link rel="stylesheet" href="{% static "./reset.css" %}"/>
+    <link rel="stylesheet" href="{% static "./styles.css" %}"/> <link
+    rel="stylesheet" href="{% static "./adicionar.css" %}"/>
   </head>
   <body>
     <header class="header">
@@ -25,68 +23,61 @@
       </nav>
     </header>
     <section class="adicionar">
-      <form action="/artigos/" method="POST" role="form" class="adicionar__form" id="myForm">
+      <form
+        action="/artigos/"
+        method="POST"
+        role="form"
+        class="adicionar__form"
+        id="myForm"
+      >
         {% csrf_token %}
         <div class="form__titulo">
           <label for="titulo">Título:</label>
-          <input type="text" id="titulo"  />
+          <input type="text" id="titulo" />
         </div>
         <div class="form__autores">
           <label>Autores:</label>
-          <input type="text" id="autor"  />
-          <button>+</button>
+          <input type="text" id="autor" class="autor" />
+          <button type="button" id="adcAutor">+</button>
         </div>
         <div class="form__insti">
           <label for="intituicao">Instituição:</label>
-          <input type="text" id="intituicao"  />
+          <input type="text" id="intituicao" />
         </div>
         <div class="form__datas">
           <div class="form__datapubli">
             <label for="datapubli">Data de publicação:</label>
-            <input type="date" id="datapubli"  />
+            <input type="date" id="datapubli" />
           </div>
           <div class="form__datacria">
             <label for="datacria">Data de criação:</label>
-            <input type="date" id="datacria"  />
+            <input type="date" id="datacria" />
           </div>
         </div>
         <div class="form__palavraschave">
           <label>Palavras chave:</label>
-          <input type="text" id="palavrachave"  />
-          <button>+</button>
+          <input type="text" id="palavrachave" class="palavrachave" />
+          <button type="button" id="adcPalavra">+</button>
         </div>
         <div class="form__resumo">
           <label for="resumo">Resumo:</label>
-          <textarea
-            name="resumo"
-            id="resumo"
-            cols="100"
-            rows="7"
-            
-          ></textarea>
+          <textarea name="resumo" id="resumo" cols="100" rows="7"></textarea>
         </div>
         <div class="form__resume">
           <label for="resume">Resume:</label>
-          <textarea
-            name="resume"
-            id="resume"
-            cols="100"
-            rows="7"
-            
-          ></textarea>
+          <textarea name="resume" id="resume" cols="100" rows="7"></textarea>
         </div>
         <div class="form__referencias">
           <label for="ref">Referências:</label>
-          <input type="text" id="ref"  />
+          <input type="text" id="ref" />
         </div>
         <div class="form__direitos">
           <label for="direitos">Direitos:</label>
-          <input type="text" id="direitos"  />
+          <input type="text" id="direitos" />
         </div>
-          <button id="adc">Adicionar artigo</button>
+        <button id="adc">Adicionar artigo</button>
       </form>
     </section>
-      <script src ="{% static  "adicionarr.js" %}"></script>      
+    <script src="{% static 'adicionar.js' %}"></script>
   </body>
-
 </html>

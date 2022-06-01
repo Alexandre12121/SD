@@ -1,12 +1,13 @@
 const secao = document.querySelector(".artigos");
 
 const LINKDOSARTIGOS = "/artigos";
-
+console.log("ois");
 document.body.onload = () => {
   fetch(LINKDOSARTIGOS)
     .then((resposta) => resposta.json())
     .then((json) => {
       for (const artigo in json) {
+        console.log(artigo);
         const novoArtigo = document.createElement("div");
         novoArtigo.innerHTML = `<h3 class="artigo__titulo">
             <span>Nome: </span>${json[artigo].title}
