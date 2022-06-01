@@ -55,7 +55,10 @@ function handleSubmit(event) {
   let listaAutores = "";
   let listaPalavras = "";
 
-  autores.forEach(({ value }) => (listaAutores += ` ${value}`));
+  autores.forEach(({ value }, index) => {
+    if (index === 0) listaAutores += `${value}`;
+    else listaAutores += `, ${value}`;
+  });
   palachave.forEach(({ value }) => (listaPalavras += ` ${value}`));
 
   let dados = JSON.stringify({
@@ -82,16 +85,15 @@ function handleSubmit(event) {
   fetch(LINK_DE_ENVIO_DOS_ARTIGOS, options);
 
   titulo.value = "";
-  autores.value = "";
+  autores.forEach((autor) => (autor.value = ""));
   instituicao.value = "";
   datapubli.value = "";
   datacria.value = "";
-  palachave.value = "";
+  palachave.forEach((palavra) => (palavra.value = ""));
   resumo.value = "";
   resume.value = "";
   referencias.value = "";
   direitos.value = "";
-  console.log(dados);
 }
 
 formulario.addEventListener("submit", handleSubmit);
