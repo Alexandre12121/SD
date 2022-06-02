@@ -1,6 +1,18 @@
 const secao = document.querySelector(".artigos");
+const LINKDOSARTIGOS = "/artigos/";
 
-const LINKDOSARTIGOS = "/artigos";
+function handleclickEdit(element) {
+  console.log(element);
+}
+
+function handleclickDelete(element) {
+  let id = element.parentElement.dataset.id;
+  fetch(LINKDOSARTIGOS + id, {
+    method: "DELETE",
+  });
+  location.reload();
+}
+
 document.body.onload = () => {
   fetch(LINKDOSARTIGOS)
     .then((response) => response.json())
@@ -8,9 +20,12 @@ document.body.onload = () => {
     .then((array) => {
       for (const artigo in array) {
         const novoArtigo = document.createElement("div");
+        novoArtigo.dataset.id = array[artigo].id;
         novoArtigo.innerHTML = `<h3 class="artigo__titulo">
             <span>Nome: </span>${array[artigo].titulo}
           </h3>
+          <button class="artigo__btn artigo__editar" onclick=handleclickEdit(this)>Editar</button>
+          <button class="artigo__btn artigo__deletar" onclick=handleclickDelete(this)>Apagar</button>
           <div class="artigo__autores">
             <p class="artigo__autorLabel">Autores:</p>
             <p class="artigo__autor">${array[artigo].autores}</p>

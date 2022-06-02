@@ -73,7 +73,7 @@ body {
   margin-top: 50px;
 }
 
-.artigo__baixar {
+.artigo__btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -89,9 +89,14 @@ body {
   background: linear-gradient(210deg, #6585bf 0, #4d628a 50%, #364159 100%);
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
     0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  cursor: pointer;
 }
 
-.artigo__baixar:hover {
+.artigo__editar {
+  right: 120px;
+}
+
+.artigo__btn:hover {
   transform: scale(1.05);
 }
 
