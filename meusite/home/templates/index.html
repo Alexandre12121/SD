@@ -21,7 +21,66 @@
         </ul>
       </nav>
     </header>
-    <section class="artigos"></section>
+    <section class="artigos">
+      <div class="adicionar">
+        <form
+          action="/artigos/"
+          method="PUT"
+          role="form"
+          class="adicionar__form"
+          id="myForm"
+        >
+          {% csrf_token %}
+          <input type="text" id="idartigo" />
+          <button type="button" id="fechar">X</button>
+          <div class="form__titulo">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" />
+          </div>
+          <div class="form__autores">
+            <label>Autores:</label>
+            <input type="text" id="autor" class="autor" />
+            <button type="button" id="adcAutor">+</button>
+          </div>
+          <div class="form__insti">
+            <label for="intituicao">Instituição:</label>
+            <input type="text" id="intituicao" />
+          </div>
+          <div class="form__datas">
+            <div class="form__datapubli">
+              <label for="datapubli">Data de publicação:</label>
+              <input type="date" id="datapubli" />
+            </div>
+            <div class="form__datacria">
+              <label for="datacria">Data de criação:</label>
+              <input type="date" id="datacria" />
+            </div>
+          </div>
+          <div class="form__palavraschave">
+            <label>Palavras chave:</label>
+            <input type="text" id="palavrachave" class="palavrachave" />
+            <button type="button" id="adcPalavra">+</button>
+          </div>
+          <div class="form__resumo">
+            <label for="resumo">Resumo:</label>
+            <textarea name="resumo" id="resumo" cols="100" rows="7"></textarea>
+          </div>
+          <div class="form__resume">
+            <label for="resume">Resume:</label>
+            <textarea name="resume" id="resume" cols="100" rows="7"></textarea>
+          </div>
+          <div class="form__referencias">
+            <label for="ref">Referências:</label>
+            <input type="text" id="ref" />
+          </div>
+          <div class="form__direitos">
+            <label for="direitos">Direitos:</label>
+            <input type="text" id="direitos" />
+          </div>
+          <button type="button" id="edc">Editar artigo</button>
+        </form>
+      </div>
+    </section>
     <script src="{% static 'index.js'%}"></script>
   </body>
 </html>

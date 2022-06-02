@@ -1,8 +1,37 @@
 const secao = document.querySelector(".artigos");
+const secaoaAdicionar = document.querySelector(".adicionar");
 const LINKDOSARTIGOS = "/artigos/";
 
 function handleclickEdit(element) {
-  console.log(element);
+  let id = element.parentElement.dataset.id;
+  const campoId = document.querySelector("#idartigo");
+  const titulo = document.querySelector("#titulo");
+  const autores = document.querySelectorAll(".autor");
+  const instituicao = document.querySelector("#intituicao");
+  const datapubli = document.querySelector("#datapubli");
+  const datacria = document.querySelector("#datacria");
+  const palachave = document.querySelectorAll(".palavrachave");
+  const resumo = document.querySelector("#resumo");
+  const resume = document.querySelector("#resume");
+  const referencias = document.querySelector("#ref");
+  const direitos = document.querySelector("#direitos");
+
+  fetch(LINKDOSARTIGOS + id)
+    .then((response) => response.json())
+    .then((objJson) => {
+      secaoaAdicionar.style = "display: flex;";
+      campoId.value = id;
+      titulo.value = objJson.titulo;
+      autores.forEach((autor) => (autor.value = objJson.autores));
+      instituicao.value = objJson.instituicao;
+      datapubli.value = objJson.datapubli;
+      datacria.value = objJson.datacria;
+      palachave.forEach((palavra) => (palavra.value = objJson.palachave));
+      resumo.value = objJson.resumo;
+      resume.value = objJson.resume;
+      referencias.value = objJson.referencias;
+      direitos.value = objJson.direitos;
+    });
 }
 
 function handleclickDelete(element) {
@@ -67,3 +96,77 @@ document.body.onload = () => {
       }
     });
 };
+
+function handleclickFechar(event) {
+  event.target.parentElement.parentElement.style = "display: none;";
+}
+
+const btnFechar = document.querySelector("#fechar");
+btnFechar.addEventListener("click", handleclickFechar);
+
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+async function handleclickSave(event) {
+  event.preventDefault();
+  let id = document.querySelector("#idartigo").value;
+  const titulo = document.querySelector("#titulo");
+  const autores = document.querySelectorAll(".autor");
+  const instituicao = document.querySelector("#intituicao");
+  const datapubli = document.querySelector("#datapubli");
+  const datacria = document.querySelector("#datacria");
+  const palachave = document.querySelectorAll(".palavrachave");
+  const resumo = document.querySelector("#resumo");
+  const resume = document.querySelector("#resume");
+  const referencias = document.querySelector("#ref");
+  const direitos = document.querySelector("#direitos");
+
+  let listaAutores = "";
+  let listaPalavras = "";
+
+  autores.forEach(({ value }, index) => {
+    if (index === 0) listaAutores += `${value}`;
+    else listaAutores += `, ${value}`;
+  });
+  palachave.forEach(({ value }) => (listaPalavras += ` ${value}`));
+
+  let dados = JSON.stringify({
+    titulo: titulo.value,
+    autores: listaAutores,
+    instituicao: instituicao.value,
+    datapubli: datapubli.value,
+    datacria: datacria.value,
+    palachave: listaPalavras,
+    resumo: resumo.value,
+    resume: resume.value,
+    referencias: referencias.value,
+    direitos: direitos.value,
+  });
+  let options = {
+    method: "PUT",
+    headers: {
+      "X-CSRFToken": getCookie("csrftoken"),
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: dados,
+  };
+  await fetch(LINKDOSARTIGOS + id + "/", options);
+
+  location.reload();
+}
+
+const btnEditarArtigo = document.querySelector("#edc");
+btnEditarArtigo.addEventListener("click", handleclickSave);
