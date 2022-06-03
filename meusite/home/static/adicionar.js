@@ -82,7 +82,14 @@ function handleSubmit(event) {
     },
     body: dados,
   };
-  fetch(LINK_DE_ENVIO_DOS_ARTIGOS, options);
+
+  fetch(LINK_DE_ENVIO_DOS_ARTIGOS, options).then((response) => {
+    if (response.ok) {
+      alert("Artigo adicionado!");
+    } else {
+      alert("Erro ao adicionar artigo!");
+    }
+  });
 
   titulo.value = "";
   autores.forEach((autor) => (autor.value = ""));

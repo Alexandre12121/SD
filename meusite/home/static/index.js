@@ -38,6 +38,11 @@ function handleclickDelete(element) {
   let id = element.parentElement.dataset.id;
   fetch(LINKDOSARTIGOS + id, {
     method: "DELETE",
+    headers: {
+      "X-CSRFToken": getCookie("csrftoken"),
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
   });
   location.reload();
 }
@@ -163,7 +168,13 @@ async function handleclickSave(event) {
     },
     body: dados,
   };
-  await fetch(LINKDOSARTIGOS + id + "/", options);
+  await fetch(LINKDOSARTIGOS + id + "/", options).then((response) => {
+    if (response.ok) {
+      alert("Artigo editado!");
+    } else {
+      alert("Erro ao editar artigo!");
+    }
+  });
 
   location.reload();
 }
