@@ -4,4 +4,4 @@ from home.models import Artigos
 class ArtigosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artigos
-        fields = ['id', 'titulo', 'autores', 'instituicao', 'datapubli','datacria', 'palachave', 'resumo', 'resume', 'referencias', 'direitos'] 
+        fields = ['id', 'titulo', 'autores', 'instituicao', 'dataPublicacao', 'palavraChave', 'resumo', 'resume', 'abstract', 'direitos'] 

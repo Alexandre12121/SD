@@ -5,9 +5,6 @@ from django.conf import settings
 from . import views
 
 
-
-
-
 urlpatterns = [
    path('',views.index, name='index.html'),
    path('adicionar.html', views.adicionar, name='adicionar.html'),

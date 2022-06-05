@@ -13,8 +13,8 @@ function adicionarCampo(event) {
   if (event.target === btnPalavra) {
     let novoCampo = document.createElement("input");
     novoCampo.setAttribute("type", "text");
-    novoCampo.setAttribute("id", "palavrachave");
-    novoCampo.setAttribute("class", "palavrachave");
+    novoCampo.setAttribute("id", "palavraChave");
+    novoCampo.setAttribute("class", "palavraChave");
     btnPalavra.insertAdjacentElement("beforebegin", novoCampo);
   }
 }
@@ -44,12 +44,12 @@ function handleSubmit(event) {
   const titulo = document.querySelector("#titulo");
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
-  const datapubli = document.querySelector("#datapubli");
-  const datacria = document.querySelector("#datacria");
-  const palachave = document.querySelectorAll(".palavrachave");
+  const dataPublicacao = document.querySelector("#dataPublicacao");
+  
+  const palavraChave = document.querySelectorAll(".palavraChave");
   const resumo = document.querySelector("#resumo");
   const resume = document.querySelector("#resume");
-  const referencias = document.querySelector("#ref");
+  const abstract = document.querySelector("#ref");
   const direitos = document.querySelector("#direitos");
 
   let listaAutores = "";
@@ -59,18 +59,18 @@ function handleSubmit(event) {
     if (index === 0) listaAutores += `${value}`;
     else listaAutores += `, ${value}`;
   });
-  palachave.forEach(({ value }) => (listaPalavras += ` ${value}`));
+  palavraChave.forEach(({ value }) => (listaPalavras += ` ${value}`));
 
   let dados = JSON.stringify({
     titulo: titulo.value,
     autores: listaAutores,
     instituicao: instituicao.value,
-    datapubli: datapubli.value,
-    datacria: datacria.value,
-    palachave: listaPalavras,
+    dataPublicacao: dataPublicacao.value,
+    
+    palavraChave: listaPalavras,
     resumo: resumo.value,
     resume: resume.value,
-    referencias: referencias.value,
+    abstract: abstract.value,
     direitos: direitos.value,
   });
   let options = {
@@ -94,12 +94,12 @@ function handleSubmit(event) {
   titulo.value = "";
   autores.forEach((autor) => (autor.value = ""));
   instituicao.value = "";
-  datapubli.value = "";
-  datacria.value = "";
-  palachave.forEach((palavra) => (palavra.value = ""));
+  dataPublicacao.value = "";
+ 
+  palavraChave.forEach((palavra) => (palavra.value = ""));
   resumo.value = "";
   resume.value = "";
-  referencias.value = "";
+  abstract.value = "";
   direitos.value = "";
 }
 

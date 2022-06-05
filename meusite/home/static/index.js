@@ -8,12 +8,12 @@ function handleclickEdit(element) {
   const titulo = document.querySelector("#titulo");
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
-  const datapubli = document.querySelector("#datapubli");
-  const datacria = document.querySelector("#datacria");
-  const palachave = document.querySelectorAll(".palavrachave");
+  const dataPublicacao = document.querySelector("#dataPublicacao");
+  
+  const palavraChave = document.querySelectorAll(".palavraChave");
   const resumo = document.querySelector("#resumo");
   const resume = document.querySelector("#resume");
-  const referencias = document.querySelector("#ref");
+  const abstract = document.querySelector("#ref");
   const direitos = document.querySelector("#direitos");
 
   fetch(LINKDOSARTIGOS + id)
@@ -24,12 +24,12 @@ function handleclickEdit(element) {
       titulo.value = objJson.titulo;
       autores.forEach((autor) => (autor.value = objJson.autores));
       instituicao.value = objJson.instituicao;
-      datapubli.value = objJson.datapubli;
-      datacria.value = objJson.datacria;
-      palachave.forEach((palavra) => (palavra.value = objJson.palachave));
+      dataPublicacao.value = objJson.dataPublicacao;
+      
+      palavraChave.forEach((palavra) => (palavra.value = objJson.palavraChave));
       resumo.value = objJson.resumo;
       resume.value = objJson.resume;
-      referencias.value = objJson.referencias;
+      abstract.value = objJson.referencias;
       direitos.value = objJson.direitos;
     });
 }
@@ -68,16 +68,14 @@ document.body.onload = () => {
             <span>Instituição: </span> ${array[artigo].instituicao}
           </p>
           <div class="artigo__datas">
-            <p class="artigo__datapubli">
-              <span>Data de publicação: </span>${array[artigo].datapubli}
+            <p class="artigo__dataPublicacao">
+              <span>Data de publicação: </span>${array[artigo].dataPublicacao}
             </p>
-            <p class="artigo__datacria">
-              <span>Data de criação: </span>${array[artigo].datacria}
-            </p>
+            
           </div>
-          <div class="artigo__palavraschave">
-            <p class="artigo__palavraschaveLabel">Palavras chave:</p>
-            <p class="artigo__palavrachave">${array[artigo].palachave}</p>
+          <div class="artigo__palavraChave">
+            <p class="artigo__palavraChaveLabel">Palavras chave:</p>
+            <p class="artigo__palavraChave">${array[artigo].palavraChave}</p>
           </div>
           <p class="artigo__resumo">
             <span>Resumo: </span>
@@ -88,9 +86,9 @@ document.body.onload = () => {
             ${array[artigo].resume}
           </p>
           <div class="artigo__refs">
-            <p class="artigo__refsLabel">Referências:</p>
+            <p class="artigo__refsLabel">Abstract:</p>
             <p class="artigo__ref">
-            ${array[artigo].referencias}
+            ${array[artigo].abstract}
             </p>
           </div>
           <p class="artigo__direitos">
@@ -130,12 +128,12 @@ async function handleclickSave(event) {
   const titulo = document.querySelector("#titulo");
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
-  const datapubli = document.querySelector("#datapubli");
-  const datacria = document.querySelector("#datacria");
-  const palachave = document.querySelectorAll(".palavrachave");
+  const dataPublicacao = document.querySelector("#dataPublicacao");
+  
+  const palavraChave = document.querySelectorAll(".palavraChave");
   const resumo = document.querySelector("#resumo");
   const resume = document.querySelector("#resume");
-  const referencias = document.querySelector("#ref");
+  const abstract = document.querySelector("#ref");
   const direitos = document.querySelector("#direitos");
 
   let listaAutores = "";
@@ -145,18 +143,18 @@ async function handleclickSave(event) {
     if (index === 0) listaAutores += `${value}`;
     else listaAutores += `, ${value}`;
   });
-  palachave.forEach(({ value }) => (listaPalavras += ` ${value}`));
+  palavraChave.forEach(({ value }) => (listaPalavras += ` ${value}`));
 
   let dados = JSON.stringify({
     titulo: titulo.value,
     autores: listaAutores,
     instituicao: instituicao.value,
-    datapubli: datapubli.value,
-    datacria: datacria.value,
-    palachave: listaPalavras,
+    dataPublicacao: dataPublicacao.value,
+    
+    palavraChave: listaPalavras,
     resumo: resumo.value,
     resume: resume.value,
-    referencias: referencias.value,
+    abstract: abstract.value,
     direitos: direitos.value,
   });
   let options = {
