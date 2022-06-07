@@ -8,9 +8,10 @@ class Artigos(models.Model):
     dataPublicacao = models.CharField(max_length = 1000)    
     palavraChave = models.CharField(max_length = 1000)
     resumo = models.CharField(max_length = 1000)
-    resume = models.CharField(max_length = 1000)
     abstract = models.CharField(max_length = 1000)
     direitos = models.CharField(max_length = 1000)
+    doi = models.CharField(max_length = 1000)
+    revista = models.CharField(max_length = 1000)
 
     def __str__(self):
         return self.autores

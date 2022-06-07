@@ -9,10 +9,10 @@ function handleclickEdit(element) {
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
   const dataPublicacao = document.querySelector("#dataPublicacao");
-  
+  const doi = document.querySelector("#doi"); 
+  const revista = document.querySelector("#revista");
   const palavraChave = document.querySelectorAll(".palavraChave");
-  const resumo = document.querySelector("#resumo");
-  const resume = document.querySelector("#resume");
+  const resumo = document.querySelector("#resumo");  
   const abstract = document.querySelector("#ref");
   const direitos = document.querySelector("#direitos");
 
@@ -25,10 +25,10 @@ function handleclickEdit(element) {
       autores.forEach((autor) => (autor.value = objJson.autores));
       instituicao.value = objJson.instituicao;
       dataPublicacao.value = objJson.dataPublicacao;
-      
+      doi.value = objJson.doi;
+      revista.value = objJson.revista;
       palavraChave.forEach((palavra) => (palavra.value = objJson.palavraChave));
-      resumo.value = objJson.resumo;
-      resume.value = objJson.resume;
+      resumo.value = objJson.resumo;      
       abstract.value = objJson.referencias;
       direitos.value = objJson.direitos;
     });
@@ -71,7 +71,14 @@ document.body.onload = () => {
             <p class="artigo__dataPublicacao">
               <span>Data de publicação: </span>${array[artigo].dataPublicacao}
             </p>
-            
+            <div class="artigo__doii">
+              <p class="artigo__doi">
+              <span>DOI: </span>${array[artigo].doi}
+          </div>
+          <div class="artigo__revss">
+            <p class="artigo__revista">
+              <span>Revista: </span>${array[artigo].revista}
+          </div>  
           </div>
           <div class="artigo__palavraChave">
             <p class="artigo__palavraChaveLabel">Palavras chave:</p>
@@ -81,16 +88,10 @@ document.body.onload = () => {
             <span>Resumo: </span>
             ${array[artigo].resumo}
           </p>
-          <p class="artigo__resumo">
-            <span>Resume: </span>
-            ${array[artigo].resume}
-          </p>
-          <div class="artigo__refs">
-            <p class="artigo__refsLabel">Abstract:</p>
-            <p class="artigo__ref">
+          <p class="artigo__refs">
+            <span>Abstract: </span>
             ${array[artigo].abstract}
-            </p>
-          </div>
+          </p>
           <p class="artigo__direitos">
             <span>Direitos: </span>${array[artigo].direitos}
           </p>`;
@@ -129,10 +130,10 @@ async function handleclickSave(event) {
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
   const dataPublicacao = document.querySelector("#dataPublicacao");
-  
+  const doi = document.querySelector("#doi");
+  const revista = document.querySelector("#revista");
   const palavraChave = document.querySelectorAll(".palavraChave");
-  const resumo = document.querySelector("#resumo");
-  const resume = document.querySelector("#resume");
+  const resumo = document.querySelector("#resumo"); 
   const abstract = document.querySelector("#ref");
   const direitos = document.querySelector("#direitos");
 
@@ -150,10 +151,10 @@ async function handleclickSave(event) {
     autores: listaAutores,
     instituicao: instituicao.value,
     dataPublicacao: dataPublicacao.value,
-    
+    doi: doi.value,
+    revista: revista.value,
     palavraChave: listaPalavras,
-    resumo: resumo.value,
-    resume: resume.value,
+    resumo: resumo.value,    
     abstract: abstract.value,
     direitos: direitos.value,
   });
