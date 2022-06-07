@@ -44,12 +44,12 @@ function handleSubmit(event) {
   const titulo = document.querySelector("#titulo");
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
+  const revista = document.querySelector("#revista");
   const dataPublicacao = document.querySelector("#dataPublicacao");
   const doi = document.querySelector("#doi");
-  const revs = document.querySelector("#revs");
   const palavraChave = document.querySelectorAll(".palavraChave");
-  const resumo = document.querySelector("#resumo");  
-  const abstract = document.querySelector("#ref");
+  const resumo = document.querySelector("#resumo");
+  const abstract = document.querySelector("#resume");
   const direitos = document.querySelector("#direitos");
 
   let listaAutores = "";
@@ -67,9 +67,9 @@ function handleSubmit(event) {
     instituicao: instituicao.value,
     dataPublicacao: dataPublicacao.value,
     doi: doi.value,
-    revs: revs.value,
+    revista: revista.value,
     palavraChave: listaPalavras,
-    resumo: resumo.value,    
+    resumo: resumo.value,
     abstract: abstract.value,
     direitos: direitos.value,
   });
@@ -96,9 +96,9 @@ function handleSubmit(event) {
   instituicao.value = "";
   dataPublicacao.value = "";
   doi.value = "";
-  revs.value = "";
+  revista.value = "";
   palavraChave.forEach((palavra) => (palavra.value = ""));
-  resumo.value = "";  
+  resumo.value = "";
   abstract.value = "";
   direitos.value = "";
 }

@@ -70,7 +70,7 @@
 .form__autores button {
   width: 40px;
   position: absolute;
-  right: 0;
+  right: -7px;
   top: 5px;
 }
 
@@ -78,37 +78,37 @@
   margin-top: 30px !important;
 }
 
-.form__datas {
+.form__div {
   display: flex;
 }
 
-.form__datas div {
+.form__div div {
   display: flex;
   width: 400px;
 }
 
-.form__datas div ~ div {
+.form__div div ~ div {
   margin-top: 0;
   margin-left: 20px;
 }
 
-.form__datas div input {
+.form__div div input {
   width: 30%;
 }
 
-.form__palavraschave {
+.form__palavraChave {
   align-items: center;
 }
 
-.form__palavraschave input {
-  width: 100px;
+.form__palavraChave input {
+  max-width: 100px;
 }
 
-.form__palavraschave input ~ input {
+.form__palavraChave input ~ input {
   margin-left: 10px;
 }
 
-.form__palavraschave button {
+.form__palavraChave button {
   width: 40px;
   margin-left: 20px;
 }
