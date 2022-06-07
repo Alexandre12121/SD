@@ -142,20 +142,20 @@ body {
   margin-top: 10px;
 }
 
-.artigo__refs {
+.artigo__revista {
   margin-top: 10px;
 }
 
-.artigo__refsLabel {
-  font-weight: bold;
-}
-
-.artigo__ref {
-  margin-top: 3px;
+.artigo__abstract {
+  margin-top: 10px;
 }
 
 .artigo__direitos {
   margin-top: 10px;
+}
+
+.artigo__doi {
+  margin-left: 20px;
 }
 
 #add-link {
@@ -242,7 +242,7 @@ body {
 .form__autores button {
   width: 40px;
   position: absolute;
-  right: 0;
+  right: -7px;
   top: 5px;
 }
 
@@ -250,21 +250,21 @@ body {
   margin-top: 30px !important;
 }
 
-.form__datas {
+.form__div {
   display: flex;
 }
 
-.form__datas div {
+.form__div div {
   display: flex;
   width: 400px;
 }
 
-.form__datas div ~ div {
+.form__div div ~ div {
   margin-top: 0;
   margin-left: 20px;
 }
 
-.form__datas div input {
+.form__div div input {
   width: 30%;
 }
 

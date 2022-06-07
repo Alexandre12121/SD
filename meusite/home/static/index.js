@@ -9,11 +9,11 @@ function handleclickEdit(element) {
   const autores = document.querySelectorAll(".autor");
   const instituicao = document.querySelector("#intituicao");
   const dataPublicacao = document.querySelector("#dataPublicacao");
-  const doi = document.querySelector("#doi"); 
+  const doi = document.querySelector("#doi");
   const revista = document.querySelector("#revista");
   const palavraChave = document.querySelectorAll(".palavraChave");
-  const resumo = document.querySelector("#resumo");  
-  const abstract = document.querySelector("#ref");
+  const resumo = document.querySelector("#resumo");
+  const abstract = document.querySelector("#resume");
   const direitos = document.querySelector("#direitos");
 
   fetch(LINKDOSARTIGOS + id)
@@ -28,8 +28,8 @@ function handleclickEdit(element) {
       doi.value = objJson.doi;
       revista.value = objJson.revista;
       palavraChave.forEach((palavra) => (palavra.value = objJson.palavraChave));
-      resumo.value = objJson.resumo;      
-      abstract.value = objJson.referencias;
+      resumo.value = objJson.resumo;
+      abstract.value = objJson.abstract;
       direitos.value = objJson.direitos;
     });
 }
@@ -56,7 +56,7 @@ document.body.onload = () => {
         const novoArtigo = document.createElement("div");
         novoArtigo.dataset.id = array[artigo].id;
         novoArtigo.innerHTML = `<h3 class="artigo__titulo">
-            <span>Nome: </span>${array[artigo].titulo}
+            <span>Título: </span>${array[artigo].titulo}
           </h3>
           <button class="artigo__btn artigo__editar" onclick=handleclickEdit(this)>Editar</button>
           <button class="artigo__btn artigo__deletar" onclick=handleclickDelete(this)>Apagar</button>
@@ -67,28 +67,27 @@ document.body.onload = () => {
           <p class="artigo__instituicao">
             <span>Instituição: </span> ${array[artigo].instituicao}
           </p>
+          <p class="artigo__revista">
+              <span>Revista: </span>${array[artigo].revista}
+          </p>
           <div class="artigo__datas">
             <p class="artigo__dataPublicacao">
               <span>Data de publicação: </span>${array[artigo].dataPublicacao}
             </p>
-            <div class="artigo__doii">
-              <p class="artigo__doi">
+            <p class="artigo__doi">
               <span>DOI: </span>${array[artigo].doi}
+            </p>
           </div>
-          <div class="artigo__revss">
-            <p class="artigo__revista">
-              <span>Revista: </span>${array[artigo].revista}
-          </div>  
           </div>
-          <div class="artigo__palavraChave">
-            <p class="artigo__palavraChaveLabel">Palavras chave:</p>
-            <p class="artigo__palavraChave">${array[artigo].palavraChave}</p>
+          <div class="artigo__palavraschave">
+            <p class="artigo__palavraschaveLabel">Palavras chave:</p>
+            <p class="artigo__palavrachave">${array[artigo].palavraChave}</p>
           </div>
           <p class="artigo__resumo">
             <span>Resumo: </span>
             ${array[artigo].resumo}
           </p>
-          <p class="artigo__refs">
+          <p class="artigo__abstract">
             <span>Abstract: </span>
             ${array[artigo].abstract}
           </p>
@@ -133,8 +132,8 @@ async function handleclickSave(event) {
   const doi = document.querySelector("#doi");
   const revista = document.querySelector("#revista");
   const palavraChave = document.querySelectorAll(".palavraChave");
-  const resumo = document.querySelector("#resumo"); 
-  const abstract = document.querySelector("#ref");
+  const resumo = document.querySelector("#resumo");
+  const abstract = document.querySelector("#resume");
   const direitos = document.querySelector("#direitos");
 
   let listaAutores = "";
@@ -154,7 +153,7 @@ async function handleclickSave(event) {
     doi: doi.value,
     revista: revista.value,
     palavraChave: listaPalavras,
-    resumo: resumo.value,    
+    resumo: resumo.value,
     abstract: abstract.value,
     direitos: direitos.value,
   });
@@ -180,3 +179,26 @@ async function handleclickSave(event) {
 
 const btnEditarArtigo = document.querySelector("#edc");
 btnEditarArtigo.addEventListener("click", handleclickSave);
+
+const btnAutor = document.querySelector("#adcAutor");
+const btnPalavra = document.querySelector("#adcPalavra");
+
+function adicionarCampo(event) {
+  if (event.target === btnAutor) {
+    let novoCampo = document.createElement("input");
+    novoCampo.setAttribute("type", "text");
+    novoCampo.setAttribute("id", "autor");
+    novoCampo.setAttribute("class", "autor");
+    btnAutor.parentElement.append(novoCampo);
+  }
+  if (event.target === btnPalavra) {
+    let novoCampo = document.createElement("input");
+    novoCampo.setAttribute("type", "text");
+    novoCampo.setAttribute("id", "palavraChave");
+    novoCampo.setAttribute("class", "palavraChave");
+    btnPalavra.insertAdjacentElement("beforebegin", novoCampo);
+  }
+}
+
+btnAutor.addEventListener("click", adicionarCampo);
+btnPalavra.addEventListener("click", adicionarCampo);

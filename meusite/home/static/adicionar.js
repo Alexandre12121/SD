@@ -86,21 +86,11 @@ function handleSubmit(event) {
   fetch(LINK_DE_ENVIO_DOS_ARTIGOS, options).then((response) => {
     if (response.ok) {
       alert("Artigo adicionado!");
+      window.location.assign("/index.html");
     } else {
       alert("Erro ao adicionar artigo!");
     }
   });
-
-  titulo.value = "";
-  autores.forEach((autor) => (autor.value = ""));
-  instituicao.value = "";
-  dataPublicacao.value = "";
-  doi.value = "";
-  revista.value = "";
-  palavraChave.forEach((palavra) => (palavra.value = ""));
-  resumo.value = "";
-  abstract.value = "";
-  direitos.value = "";
 }
 
 formulario.addEventListener("submit", handleSubmit);
