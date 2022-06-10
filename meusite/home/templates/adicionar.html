@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP SD</title>
-    {% load static %} <link rel="stylesheet" href="{% static "./reset.css" %}"/>
-    <link rel="stylesheet" href="{% static "./styles.css" %}"/> <link
-    rel="stylesheet" href="{% static "./adicionar.css" %}"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/adicionar.css' %}" />
   </head>
   <body>
     <header class="header">
@@ -78,6 +79,6 @@
         <button id="adc">Adicionar artigo</button>
       </form>
     </section>
-    <script src="{% static 'adicionar.js' %}"></script>
+    <script src="{% static 'js/adicionar.js' %}"></script>
   </body>
 </html>
