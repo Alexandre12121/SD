@@ -11,21 +11,41 @@
     <link rel="stylesheet" href="{% static 'styles/adicionar.css' %}" />
   </head>
   <body>
+    {% block content %}
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}   
     <header class="header">
       <nav class="header__navegacao">
         <ul class="header__menu">
+          {% if user.is_superuser %}
+          <li class="header__item">
+            <a class="header__link" href="artigos">Rest Framework</a>
+          </li>
           <li class="header__item">
             <a class="header__link" href="index.html">Artigos publicados</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="adicionar.html">Adicionar artigo</a>
+            <label for="logout">Seja bem vindo {{user.username}}!! </label>      
+            <a class="header__link" href="/logout">Sair</a>
+          {% else %}
+          <li class="header__item">
+            <a class="header__link" href="index.html">Artigos publicados</a>
           </li>
           <li class="header__item">
-            <a class="header__link" href="artigos">Rest Framework</a>
-          </li>
-        </ul>
-      </nav>
+            <label for="logout">Seja bem vindo {{user.username}}!! </label>      
+            <a class="header__link" href="/logout">Sair</a>
+          {% endif %}
+    {% else %}
+      <p>Voce não esta logado. Faça o Login:</p>
+      <a href="/login">login</a>
+    {% endif %}
+          
+    {% endblock %}
+
     </header>
+
+    
     <section class="adicionar">
       <form
         action="/artigos/"
