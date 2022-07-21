@@ -309,3 +309,8 @@ body {
   right: -25px;
   width: 50px;
 }
+
+.header__item label {
+  position: absolute;
+  right: 25px;
+}
