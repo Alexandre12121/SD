@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from django.contrib.auth.models import User, Permission
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
 
 # Create your views here.
 @login_required(login_url='login/')
@@ -38,14 +39,19 @@ def cadastro(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         user = User.objects.filter(username=username).first()      
+        usuario_aux = User.objects.filter(email=email).first()
+        if usuario_aux:
+            messages.info(request, 'Já existe um usuario com o mesmo e-mail!!!')
+            return redirect('/cadastro')
         if user:            
             messages.info(request, 'Ja existe um usuario com esse Login!!')
             return redirect('/cadastro')
         else:                        
             user = User.objects.create_user(username=username, email=email, password=senha)
-            messages.info(request, 'Usuario cadastrado com sucesso')
+            messages.info(request, 'Usuario cadastrado com sucesso - Email de confirmação no terminal!!')
+            send_mail("Confirmação de cadastro", "Sua conta foi criada com sucesso",'artigos@gmail.com',['to@example.com'],fail_silently=False)
             return redirect('/login')  
-      
+            
 #Create 
 class ArtigosViewSets(viewsets.ModelViewSet):
     queryset = Artigos.objects.all() 
