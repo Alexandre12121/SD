@@ -1,17 +1,17 @@
 # Projeto Repositorio de Artigos Científicos
-![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge) 
+
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
 ## Autores 🧑‍💼🧑‍💼🧑‍💼
 
-| [<img src="https://avatars.githubusercontent.com/u/75952650?v=4" width=115><br><sub>Alexandre Santos Ferreira</sub>](https://github.com/Alexandre12121) |  [<img src="https://avatars.githubusercontent.com/u/53832637?v=4" width=115><br><sub>Luiz Henrique Lima</sub>](https://github.com/luizhenrlimaa) |  [<img src="https://avatars.githubusercontent.com/u/69551648?v=4" width=115><br><sub>Vinícius Soares de Paula Souza</sub>](https://github.com/Vsspaulasouza) |
-| :---: | :---: | :---: |
-
+| [<img src="https://avatars.githubusercontent.com/u/75952650?v=4" width=115><br><sub>Alexandre Santos Ferreira</sub>](https://github.com/Alexandre12121) | [<img src="https://avatars.githubusercontent.com/u/53832637?v=4" width=115><br><sub>Luiz Henrique Lima</sub>](https://github.com/luizhenrlimaa) | [<img src="https://avatars.githubusercontent.com/u/69551648?v=4" width=115><br><sub>Vinícius Soares de Paula Souza</sub>](https://github.com/Vsspaulasouza) |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
 ## Descrição do projeto 📚
 
 <p align="justify">
-O projeto é realizado para a materia de Sistema Distribuidos do curso Sistemas de Informações da UFVJM. Sua finalidade é apresentar
-o funcionamento de um sistema repositorio, utilizando como base o Django, HTML, CSS e JavaScript.
+O projeto é realizado na disciplina de Sistemas Distribuídos do curso Sistemas de Informação da UFVJM. Sua finalidade é apresentar
+o funcionamento de um sistema para um repositório de artigos científicos, utilizando como base o Django, HTML, CSS e JavaScript.
 </p>
 
 ## Tecnologias 🛠
@@ -27,16 +27,19 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## Como rodar a aplicação :arrow_forward:
 
 Para rodar o sistema, é necessario entrar na basta base SD e rodar o seguinte comando:
+
 ```
 $ source serv/bin/activate
 ```
 
 Após ativar o ambiente virtual, é necessario entrar na pasta meusite, com o comando:
+
 ```
 $ cd meusite
 ```
 
 Agora para rodar o servidor é necessario rodar o comando:
+
 ```
 $ python manage.py runserver
 ```
@@ -51,11 +54,13 @@ Primeirante foi criado uma basta base, chamada SD com o comando:
 ```
 $ mkdir SD
 ```
+
 Após a criação da pasta, é necessario criar o ambiente virtual, com o comando:
 
 ```
 $ python -m venv serv
 ```
+
 Para ativar esse ambiente:
 
 ```
